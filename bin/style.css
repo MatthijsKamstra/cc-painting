@@ -1,0 +1,35 @@
+body {
+  background: #1fa2ff;
+  background: linear-gradient(to right, #a6ffcb, #12d8fa, #1fa2ff);
+}
+
+.container-frame {
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 615px;
+  position: relative;
+}
+
+#painting {
+  border: 0px solid pink;
+  position: absolute;
+  left: 92px;
+  top: 92px;
+  width: 431px;
+  height: 431px;
+  background-color: #1fa2ff;
+  overflow: hidden;
+}
+.rotate {
+  animation: rotation 2s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

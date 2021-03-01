@@ -3,7 +3,7 @@
 var App = function() { };
 var Main = function() {
 	window.document.addEventListener("DOMContentLoaded",function(event) {
-		$global.console.log("" + App.NAME + " Dom ready :: build: " + "2021-02-27 23:19:49" + " ");
+		$global.console.log("" + App.NAME + " Dom ready :: build: " + "2021-02-28 19:40:49" + " ");
 		new Paint00();
 	});
 };
@@ -11,16 +11,37 @@ Main.main = function() {
 	var app = new Main();
 };
 var Paint00 = function() {
-	console.log("src/Paint00.hx:9:","x");
+	this.total = 100;
 	this.init();
 };
 Paint00.prototype = {
 	init: function() {
 		var div = window.document.getElementById("painting");
-		var img = new Image();
-		img.src = "img/sprocket.png";
-		img.classList.add("rotate");
-		div.appendChild(img);
+		var maxW = div.clientWidth;
+		var maxH = div.clientHeight;
+		var _g = 0;
+		var _g1 = this.total;
+		while(_g < _g1) {
+			var i = _g++;
+			var dir = "reverse";
+			if(sketcher_util_MathUtil.chance(50)) {
+				dir = "normal";
+			}
+			var w = sketcher_util_MathUtil.randomInt(50,150);
+			var left = sketcher_util_MathUtil.randomInt(0,maxW) - w / 2;
+			var top = sketcher_util_MathUtil.randomInt(0,maxH) - w / 2;
+			var img = new Image();
+			img.width = w;
+			img.src = "img/sprocket.png";
+			img.classList.add("rotate");
+			img.style.animationDirection = dir;
+			var tmp = "" + sketcher_util_MathUtil.randomInt(30,100) / 10;
+			img.style.animationDuration = tmp + "s";
+			img.style.position = "absolute";
+			img.style.left = "" + left + "px";
+			img.style.top = "" + top + "px";
+			div.appendChild(img);
+		}
 	}
 };
 var haxe_iterators_ArrayIterator = function(array) {
@@ -34,6 +55,23 @@ haxe_iterators_ArrayIterator.prototype = {
 	,next: function() {
 		return this.array[this.current++];
 	}
+};
+var sketcher_util_MathUtil = function() { };
+sketcher_util_MathUtil.randomInteger = function(min,max) {
+	if(max == null) {
+		max = min;
+		min = 0;
+	}
+	return Math.floor(Math.random() * (max + 1 - min)) + min;
+};
+sketcher_util_MathUtil.randomInt = function(min,max) {
+	return sketcher_util_MathUtil.randomInteger(min,max);
+};
+sketcher_util_MathUtil.chance = function(value) {
+	if(value > 1) {
+		value /= 100;
+	}
+	return Math.random() < value;
 };
 App.NAME = "[example_javascript]";
 Main.main();

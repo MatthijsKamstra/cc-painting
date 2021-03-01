@@ -1,3 +1,7 @@
+html,
+body {
+  height: 100%;
+}
 body {
   background: #1fa2ff;
   background: linear-gradient(to right, #a6ffcb, #12d8fa, #1fa2ff);
@@ -19,11 +23,15 @@ body {
   top: 92px;
   width: 431px;
   height: 431px;
-  background-color: #1fa2ff;
   overflow: hidden;
+  background-color: #1fa2ff;
+  background-image: url(img/bg_metal.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .rotate {
   animation: rotation 2s infinite linear;
+  /* border: 1px solid pink; */
 }
 @keyframes rotation {
   from {

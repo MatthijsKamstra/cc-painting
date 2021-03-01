@@ -1,9 +1,10 @@
 # Libraries you like to use (http://lib.haxe.org/)
-#-lib js-kit
-#-lib hxnodejs#
+# -lib js-kit
+# -lib hxnodejs#
 # -lib vue
 # -lib hxexterns
 # -lib haxelow
+-lib cc-sketch-plus
 
 # Integrate files to classpath
 -cp src
